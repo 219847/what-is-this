@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+<script>
+spaceChars = [
+ "‎ ",
+ " "
+]
+
+function edit()
+{
+a=document.getElementById("thing").value;
+newStr=""
+for (let i = 0; i < a.length; i++) {
+    if (a[i] === " ") {
+        const randIndex = Math.floor(Math.random() * spaceChars.length);
+        newStr += spaceChars[randIndex];
+    } else {
+        newStr += a[i];
+    }
+}
+document.getElementById("result").innerText=newStr
+}
+
+</script>
+
+
+<h1>AI Humanizer</h1>
+<p>Bypasses ZeroGPT, Grammarly; potentially breaks other detectors</p>
+<textarea id="thing"></textarea>
+<button onclick="edit()">Humanize</button>
+<p id="result">result here</p>
+</body>
+</html>
+
+
