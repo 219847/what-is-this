@@ -10,20 +10,6 @@ spaceChars = [
  " "
 ]
 
-// function edit()
-// {
-// a=document.getElementById("thing").value;
-// newStr=""
-// for (let i = 0; i < a.length; i++) {
-//     if (a[i] === " ") {
-//         const randIndex = Math.floor(Math.random() * spaceChars.length);
-//         newStr += spaceChars[randIndex];
-//     } else {
-//         newStr += a[i];
-//     }
-// }
-// document.getElementById("result").innerText=newStr
-// }
 function edit()
 {
 a=document.getElementById("thing").value;
@@ -31,13 +17,14 @@ newStr=""
 for (let i = 0; i < a.length; i++) {
     if (a[i] === " ") {
         const randIndex = Math.floor(Math.random() * spaceChars.length);
-        newStr += "‎ ";
+        newStr += spaceChars[randIndex];
     } else {
         newStr += a[i];
     }
 }
 document.getElementById("result").innerText=newStr
 }
+
 </script>
 
 
@@ -59,5 +46,3 @@ keep doing this until you get a low score
 <p id="result">result here</p>
 </body>
 </html>
-
-
