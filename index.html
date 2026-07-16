@@ -5,11 +5,40 @@
 </head>
 <body>
 <script>
-spaceChars = [
+const zeroWidthChars = [
+  "\u200B", // Zero‑Width Space
+  "\u200C", // Zero‑Width Non‑Joiner
+  "\u200D", // Zero‑Width Joiner
+  "\u2060", // Word Joiner
+  "\uFEFF"  // Zero‑Width No‑Break Space (BOM)
+];
+
+const spaceChars = [
  "‎ ",
  " "
 ]
 
+const fakePeriods = [
+    "․",    
+    "．",  
+    "."
+]
+const fakeCommas=[
+    "\u002C",  //ASCII comma
+    "\uFF0C",  //Fullwidth comma
+    ","
+]
+
+const fakeLs=[
+"ⅼ",
+"l"
+]
+
+const fakeOs=[
+    "o",        // Latin o (U+006F) — included for reference
+
+    "о",        // Cyrillic o (U+043E)
+]
 function edit()
 {
 a=document.getElementById("thing").value;
@@ -21,6 +50,44 @@ for (let i = 0; i < a.length; i++) {
     } else {
         newStr += a[i];
     }
+}
+document.getElementById("result").innerText=newStr
+}
+
+function editAdvanced()
+{
+a=document.getElementById("thing").value;
+newStr=""
+for (let i = 0; i < a.length; i++) {
+    if (a[i] === " ") {
+        const randIndex = Math.floor(Math.random() * spaceChars.length);
+        newStr += spaceChars[randIndex];
+    } 
+    
+    else if (a[i] === ".") {
+    	const randIndex = Math.floor(Math.random() * fakePeriods.length);
+        newStr += fakePeriods[randIndex];
+    }
+    
+    else if (a[i] === ",") {
+    	const randIndex = Math.floor(Math.random() * fakeCommas.length);
+        newStr += fakeCommas[randIndex];
+    }
+    
+    else if (a[i] === "l") {
+    	const randIndex = Math.floor(Math.random() * fakeLs.length);
+        newStr += fakeLs[randIndex];
+    }
+    
+    else if (a[i] === "o") {
+    	const randIndex = Math.floor(Math.random() * fakeOs.length);
+        newStr += fakeOs[randIndex];
+    }
+    
+    else {
+        newStr += a[i];
+    }
+    newStr+=zeroWidthChars[Math.floor(Math.random()*1)]
 }
 document.getElementById("result").innerText=newStr
 }
@@ -43,6 +110,7 @@ keep doing this until you get a low score
 </p>
 <textarea id="thing"></textarea>
 <button onclick="edit()">Humanize</button>
+<button onclick="editAdvanced()">Humanize (Advanced, breaks quillbot detector)</button>
 <p id="result">result here</p>
 </body>
 </html>
