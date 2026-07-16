@@ -10,6 +10,20 @@ spaceChars = [
  " "
 ]
 
+// function edit()
+// {
+// a=document.getElementById("thing").value;
+// newStr=""
+// for (let i = 0; i < a.length; i++) {
+//     if (a[i] === " ") {
+//         const randIndex = Math.floor(Math.random() * spaceChars.length);
+//         newStr += spaceChars[randIndex];
+//     } else {
+//         newStr += a[i];
+//     }
+// }
+// document.getElementById("result").innerText=newStr
+// }
 function edit()
 {
 a=document.getElementById("thing").value;
@@ -17,14 +31,13 @@ newStr=""
 for (let i = 0; i < a.length; i++) {
     if (a[i] === " ") {
         const randIndex = Math.floor(Math.random() * spaceChars.length);
-        newStr += spaceChars[randIndex];
+        newStr += "‎ ";
     } else {
         newStr += a[i];
     }
 }
 document.getElementById("result").innerText=newStr
 }
-
 </script>
 
 
