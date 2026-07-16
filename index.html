@@ -31,6 +31,13 @@ document.getElementById("result").innerText=newStr
 <h1>AI Humanizer</h1>
 <p>Bypasses ZeroGPT, Grammarly; potentially breaks other detectors
 By the way kids, make sure to verify by pasting it in ai detectors. Since this is randomized, it is helpful to run the humanize process again to ensure a 0% score on zerogpt
+A sample procedure:
+paste your ai text
+copy paste the output in zerogpt
+if text returned >0 score,
+paste the output in the input
+and get another output
+keep doing this until you get a low score
 </p>
 <textarea id="thing"></textarea>
 <button onclick="edit()">Humanize</button>
